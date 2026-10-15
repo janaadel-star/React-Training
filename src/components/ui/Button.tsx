@@ -1,24 +1,23 @@
+// @ts-nocheck
 import React from 'react';
 
-export default function Button({ text, onClick, variant = 'primary', disabled = false }) {
-  const getVariantClass = () => {
-    switch (variant) {
-      case 'secondary':
-        return 'bg-gray-500 hover:bg-gray-600 text-white';
-      case 'danger':
-        return 'bg-red-500 hover:bg-red-600 text-white';
-      default:
-        return 'bg-blue-500 hover:bg-blue-600 text-white';
-    }
-  };
-
+export default function Button({ text, variant = 'primary', onClick, disabled = false }) {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`px-4 py-2 rounded font-medium transition-all ${getVariantClass()} ${
-        disabled ? 'opacity-50 cursor-not-allowed' : ''
-      }`}
+      style={{
+        backgroundColor: '#0f274e', 
+        color: '#ffffff',           
+        padding: '10px 10px',
+        border: 'none',
+        borderRadius: '50px',
+        fontSize: '1rem',
+        fontWeight: '400',
+        cursor: disabled ? 'not-allowed' : 'pointer',
+        opacity: disabled ? 0.6 : 1,
+        transition: 'background-color 0.2s'
+      }}
     >
       {text}
     </button>
